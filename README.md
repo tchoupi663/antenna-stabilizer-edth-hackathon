@@ -1,8 +1,8 @@
 # Keep it level
 
-[![The platform holds the antenna level while the aircraft rolls, pitches and rides turbulence](media/demo.gif)](media/demo.mp4)
+![The platform holds the antenna level while the aircraft rolls, pitches and rides turbulence](media/demo.gif)
 
-A 15 s replay of the model, with the platform on a fixed-wing airframe. The full-resolution video is `media/demo.mp4`.
+A 15 s replay of the model, with the platform on a fixed-wing airframe. The GIF is a 720 px preview; the original mp4 is in `media/`.
 
 Satellite links on drones are fragile. Some antennas, CRPA types included, are built to reject jamming and multipath, but their reception pattern is fixed to the antenna body. Bolt one to the airframe and it tilts with every turn: it picks up reflections from the ground, trees and buildings, and the jammer signal gets an easier path into the receiver. The airframe moves all the time and not in a fixed pattern, so the attitude cannot be planned away.
 

@@ -1,0 +1,5 @@
+.DS_Store
+sim/slprj/
+*.slxc
+*.autosave
+__pycache__/

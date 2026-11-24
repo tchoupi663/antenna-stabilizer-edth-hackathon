@@ -1,6 +1,8 @@
-# Keep it level
+<h1 align="center">Keep it level</h1>
 
-![The platform holds the antenna level while the aircraft rolls, pitches and rides turbulence](media/demo.gif)
+<p align="center">A cheap two-axis gimbal that keeps a drone's satellite antenna pointed at the sky.</p>
+
+<p align="center"><img src="media/demo.gif" width="720" alt="The platform holds the antenna level while the aircraft rolls, pitches and rides turbulence"></p>
 
 A 15 s replay of the model, with the platform on a fixed-wing airframe. The GIF is a 720 px preview; the original mp4 is in `media/`.
 

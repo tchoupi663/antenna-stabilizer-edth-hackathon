@@ -1,8 +1,8 @@
-# A leveling platform for a drone antenna
+# Keep it level
 
-[![The platform holds the antenna level while the aircraft rolls, pitches and rides turbulence](media/demo-poster.jpg)](media/demo.mp4)
+[![The platform holds the antenna level while the aircraft rolls, pitches and rides turbulence](media/demo.gif)](media/demo.mp4)
 
-A 15 s replay of the model, with the platform on a fixed-wing airframe. Click the still to play the video.
+A 15 s replay of the model, with the platform on a fixed-wing airframe. The full-resolution video is `media/demo.mp4`.
 
 Satellite links on drones are fragile. Some antennas, CRPA types included, are built to reject jamming and multipath, but their reception pattern is fixed to the antenna body. Bolt one to the airframe and it tilts with every turn: it picks up reflections from the ground, trees and buildings, and the jammer signal gets an easier path into the receiver. The airframe moves all the time and not in a fixed pattern, so the attitude cannot be planned away.
 
@@ -59,7 +59,7 @@ The benchmark prototype costs 170 to 195 €: two servos at 20 € each, four al
 | `sim/gimbal_params.m` | Every parameter with its source: measured, CAD, datasheet, brief or assumed |
 | `cad/build_gimbal.py` | Parametric CAD: geometry, clearance sweep, mass properties, torque budget. Writes `cad/stl/` and `cad/gimbal_results.json` |
 | `cad/stl/` | STLs the model imports: the printed parts and dummies for the antenna, servos and cable |
-| `media/` | The demo video and the images in this README |
+| `media/` | The demo as an inline GIF, the full-resolution mp4, and the images in this README |
 
 Not included: the test harness and flight logs behind the numbers, the live telemetry bridge, the electronics schematic and the bench recordings.
 

@@ -1,14 +1,12 @@
 <h1 align="center">Keep it level</h1>
 
-<p align="center">A cheap two-axis gimbal that keeps a drone's satellite antenna pointed at the sky.</p>
+<p align="center">A cheap, drop-in gimbal that keeps a drone's satellite antenna always pointed up.</p>
 
 <p align="center"><img src="media/demo.gif" width="720" alt="The platform holds the antenna level while the aircraft rolls, pitches and rides turbulence"></p>
 
-A 15 s replay of the model, with the platform on a fixed-wing airframe. The GIF is a 720 px preview; the original mp4 is in `media/`.
-
 Satellite links on drones are fragile. Some antennas, CRPA types included, are built to reject jamming and multipath, but their reception pattern is fixed to the antenna body. Bolt one to the airframe and it tilts with every turn: it picks up reflections from the ground, trees and buildings, and the jammer signal gets an easier path into the receiver. The airframe moves all the time and not in a fixed pattern, so the attitude cannot be planned away.
 
-This is a two-axis platform that keeps the antenna level, and so pointed at the sky, through roll and pitch. It costs 128 € in parts for the printed version or 583 € for the machined aluminium one, prints on a hobby 3D printer, and bolts to the aircraft deck. It is standalone: it runs on the flight controller that is already there, so there is no extra IMU, no extra processor and no firmware to maintain.
+This is a two-axis platform that keeps the antenna level, and so pointed at the sky, through roll and pitch. Drop-in component, connected to the flight controller that already flies the aircraft. There is no extra IMU, no extra processor and no firmware to integrate or maintain. It costs 128 € in parts for the printed version or 583 € for the machined aluminium one, and it prints on a hobby 3D printer.
 
 Built for the Fire Point challenge at the European Defense Tech Hackathon, EDTH, Paris, November 2026. 50 teams, 3 days.
 
@@ -18,7 +16,7 @@ Two DSServo DS3240 servos, about 25 € each, move a Cardan gimbal: roll on the 
 
 The Cube Orange that already flies the aircraft does the control. ArduPilot's servo mount, `MNT1_TYPE = 1`, writes `cmd = -(attitude + 0.07 s * rate)` to two spare AUX outputs, and each servo closes its own position loop. That is feed-forward from the attitude and the rate, not a PID on a second sensor. A closed loop would need another IMU, a controller board and firmware, and it would not remove the delay that the lead term handles.
 
-The platform uses flight controller data that is already computed: roll, pitch and their rotation rates. Airspeed enters the simulated maneuver load. Installation is two servo leads and four bolts.
+The platform uses flight controller data that is already computed: roll, pitch and their rotation rates. Airspeed enters the simulated maneuver load.
 
 ## What it does
 

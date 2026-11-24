@@ -6,13 +6,13 @@ A 15 s replay of the model, with the platform on a fixed-wing airframe. The GIF 
 
 Satellite links on drones are fragile. Some antennas, CRPA types included, are built to reject jamming and multipath, but their reception pattern is fixed to the antenna body. Bolt one to the airframe and it tilts with every turn: it picks up reflections from the ground, trees and buildings, and the jammer signal gets an easier path into the receiver. The airframe moves all the time and not in a fixed pattern, so the attitude cannot be planned away.
 
-This is a two-axis platform that keeps the antenna level, and so pointed at the sky, through roll and pitch. It costs 170 to 195 € in parts, prints on a hobby 3D printer, and bolts to the aircraft deck. It is standalone: it runs on the flight controller that is already there, so there is no extra IMU, no extra processor and no firmware to maintain.
+This is a two-axis platform that keeps the antenna level, and so pointed at the sky, through roll and pitch. It costs 128 € in parts for the printed version or 583 € for the machined aluminium one, prints on a hobby 3D printer, and bolts to the aircraft deck. It is standalone: it runs on the flight controller that is already there, so there is no extra IMU, no extra processor and no firmware to maintain.
 
 Built for the Fire Point challenge at the European Defense Tech Hackathon, EDTH, Paris, November 2026. 50 teams, 3 days.
 
 ## How it works
 
-Two DSServo DS3240 servos, about 20 € each, move a Cardan gimbal: roll on the outer axis, pitch on the inner one. Both axes pass through the center of gravity of the antenna. A banked turn pulls sideways on any mass above or below the pivots, so pivoting through the middle removes that load; the servos turn the dish instead of holding it up. With a 4 kg antenna the peak servo torque in the tests is 54 % of stall.
+Two DSServo DS3240 servos, about 25 € each, move a Cardan gimbal: roll on the outer axis, pitch on the inner one. Both axes pass through the center of gravity of the antenna. A banked turn pulls sideways on any mass above or below the pivots, so pivoting through the middle removes that load; the servos turn the dish instead of holding it up. With a 4 kg antenna the peak servo torque in the tests is 54 % of stall.
 
 The Cube Orange that already flies the aircraft does the control. ArduPilot's servo mount, `MNT1_TYPE = 1`, writes `cmd = -(attitude + 0.07 s * rate)` to two spare AUX outputs, and each servo closes its own position loop. That is feed-forward from the attitude and the rate, not a PID on a second sensor. A closed loop would need another IMU, a controller board and firmware, and it would not remove the delay that the lead term handles.
 
@@ -37,18 +37,19 @@ Beyond the brief it does not hold. Real logs as flown, with banks to 84°, 200 �
 
 ## Geometry
 
-<p>
-<img src="media/exploded-orange.png" width="49%" alt="Exploded view, structure in orange">
-<img src="media/exploded-green.png" width="49%" alt="Exploded view, structure in green">
-</p>
-
-Exploded views. Grey is the antenna, blue is the servo drive, orange and green are the printed structure, and the plate stands in for the aircraft deck.
-
 The frame wraps the Ø370 × 50 mm antenna and holds it by the six M4 tabs on its back, not by the radome. The posts sit between ±195 mm and ±200 mm, so the outside lands on the 400 mm limit with nothing to spare, and the arms clear the rim by 0.5 mm. Two 1:1 parallelogram linkages keep both servos inside the envelope. The clearance sweep runs roll ±50° against pitch ±45° in 5° steps and finds no contact; the closest pair is 1.0 mm apart.
 
-## Parts and cost
+## Versions and cost
 
-The benchmark prototype costs 170 to 195 €: two servos at 20 € each, four aluminium horns, 608ZZ and 688ZZ bearings, an 8 mm shaft, ball links, M3 rod, screws and inserts, a 6 V UBEC with a capacitor, and 0.5 kg of PETG. The structure is 369 g in PETG or 784 g in aluminium 6061. Print the PETG version for the bench and fly the aluminium one: a printed frame around a 4 kg antenna has its first mode near 10 Hz.
+![Proof of concept: printed PETG structure, 0.6 kg, 128 €](media/proof-of-concept.png)
+
+![Launch-ready version: machined aluminium structure, 1.6 kg, 583 €](media/launch-ready.png)
+
+The printed proof of concept costs 128 € and weighs 0.6 kg. Two servos take 50 €, the PETG parts 15 €, rods and links 20 €, shafts and bearings 25 €, horns 8 €, and the cable 10 €. The flight controller and the power module come with the aircraft.
+
+The launch-ready version costs 583 € and weighs 1.6 kg. The machined aluminium parts dominate: frame 180 €, posts 120 €, collar 80 €, and anodising 40 €, plus thrust bearings, strike pads and four snubbing mounts.
+
+Print the PETG frame for the bench and fly the aluminium one: a printed frame around a 4 kg antenna has its first mode near 10 Hz.
 
 ## What is in this repository
 
